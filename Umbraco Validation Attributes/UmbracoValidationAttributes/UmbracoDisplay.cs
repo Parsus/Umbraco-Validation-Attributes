@@ -18,7 +18,10 @@ namespace UmbracoValidationAttributes
         {
             get
             {
-                return UmbracoValidationHelper.UmbracoHelper.GetDictionaryValue(_dictionaryKey);
+                // 20170907RBP - Use validation helper method which falls backs to 
+                // key if there is no dictionary item
+                return UmbracoValidationHelper.GetDictionaryItem(_dictionaryKey);
+                //return UmbracoValidationHelper.UmbracoHelper.GetDictionaryValue(_dictionaryKey);
             }
         }
     }
