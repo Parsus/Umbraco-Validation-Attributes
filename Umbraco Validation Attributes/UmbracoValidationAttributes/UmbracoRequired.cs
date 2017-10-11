@@ -10,12 +10,14 @@ namespace UmbracoValidationAttributes
     {
         private readonly string _errorMessageDictionaryKey;
 
+        public UmbracoRequired() : this("ValidationMessages.Required") {
+
+        }
 
         public UmbracoRequired(string errorMessageDictionaryKey)
         {
             _errorMessageDictionaryKey = errorMessageDictionaryKey;   
         }
-
 
         /// <summary>
         /// 

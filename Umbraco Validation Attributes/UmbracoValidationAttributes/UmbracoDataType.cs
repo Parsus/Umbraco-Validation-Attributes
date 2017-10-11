@@ -10,6 +10,9 @@ namespace UmbracoValidationAttributes
     {
         private readonly string _errorMessageDictionaryKey;
 
+        public UmbracoDataType(DataType type)
+                    : this(type, "ValidationMessages.DataType") {
+        }
 
         public UmbracoDataType(DataType type, string errorMessageDictionaryKey)
             : base(type)
