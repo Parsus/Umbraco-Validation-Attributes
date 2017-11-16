@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using Umbraco.Web;
 
@@ -32,6 +33,22 @@ namespace UmbracoValidationAttributes
                 return errorMessageDictionaryKey;
                 //throw new Exception(string.Format("The dictionary key '{0}' for the required error message is empty or does not exist", errorMessageDictionaryKey));
             }
+            return error;
+        }
+
+        public static string GetDictionaryItem(string errorMessageDictionaryKey,
+            string defaultValue) {
+
+            //Get dictionary value for thge required error message
+            var error = UmbracoHelper.GetDictionaryValue(errorMessageDictionaryKey);
+
+            //Sanity checking it's not empty
+            if (string.IsNullOrEmpty(error)) {
+                // 20170907RBP - Fallback to passed in key
+                return defaultValue;
+                //throw new Exception(string.Format("The dictionary key '{0}' for the required error message is empty or does not exist", errorMessageDictionaryKey));
+            }
+
             return error;
         }
 

@@ -236,6 +236,7 @@
     <Compile Include="UmbracoRemote.cs" />
     <Compile Include="UmbracoRequired.cs" />
     <Compile Include="UmbracoValidationHelper.cs" />
+    <Compile Include="ValidationAttributeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

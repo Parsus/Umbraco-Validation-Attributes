@@ -23,7 +23,7 @@ namespace UmbracoValidationAttributes
 
         public IEnumerable<ModelClientValidationRule> GetClientValidationRules(System.Web.Mvc.ModelMetadata metadata, ControllerContext context)
         {
-            ErrorMessage = UmbracoValidationHelper.GetDictionaryItem(_errorMessageDictionaryKey);
+            this.TrySetErrorMessage(_errorMessageDictionaryKey);
 
             // Kodus to "Chad" http://stackoverflow.com/a/9914117
             yield return new ModelClientValidationRule
