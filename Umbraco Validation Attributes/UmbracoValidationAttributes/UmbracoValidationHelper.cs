@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using Umbraco.Web;
+using UmbracoValidationAttributes.Extensions;
 
 namespace UmbracoValidationAttributes
 {
@@ -24,7 +25,8 @@ namespace UmbracoValidationAttributes
         public static string GetDictionaryItem(string errorMessageDictionaryKey)
         {
             //Get dictionary value for thge required error message
-            var error = UmbracoHelper.GetDictionaryValue(errorMessageDictionaryKey);
+            var error = UmbracoHelper.GetCachedDictionaryValueOrFallback(errorMessageDictionaryKey,
+                errorMessageDictionaryKey);
 
             //Sanity checking it's not empty
             if (string.IsNullOrEmpty(error))
